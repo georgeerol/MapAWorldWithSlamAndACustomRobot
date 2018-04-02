@@ -1,0 +1,29 @@
+# The move_base package creates and calculates  a path or a trajectory to the goal position, and navigates the robot
+# along that path. The set of parameters in this configuration file customize this particular behavior.
+
+TrajectoryPlannerROS:
+
+# Forward Simulation Parameter
+# sim_time is the amount of time to forward-simulate trajectories in seconds.
+# controller_frequency is  the frequency at which the controller is called in Hz.
+  sim_time: 4.0
+  controller_frequency: 10
+# Trajectory Scoring
+# The pdist_sclale is the weighting for how much the controller should stay close to the path it was given.
+# It is the distance to path from the endpoint of the trajectory in map cells or meters depending on the meter_scoring parameter
+# The pdsit_scale is set to it default value 6.0.
+  meter_scoring: true
+  pdist_scale: 0.5
+
+# Goal Tolerance Parameters
+# yaw and xy goal tolerances
+# These tolerance help define how close the robot's pose can be to the goal position.
+  yaw_goal_tolerance: 0.1
+  xy_goal_tolerance: 0.02
+
+
+
+# holonomic_robot is use to determine whether velocity commands are generated for a holonomic or non-holonomic robot. For holonomic robots,
+# strafing velocity commands may be issued to the base. For non-holonomic robots, no strafing velocity commands will be issued.
+  holonomic_robot: false
+

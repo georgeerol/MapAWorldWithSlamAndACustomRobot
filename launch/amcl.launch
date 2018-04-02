@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Map server -->
+  <arg name="map_file" default="$(find fouliex_bot)/maps/jackal_race.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Place map frame at odometry frame -->
+  <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster"
+      args="0 0 0 0 0 0 map odom 100"/>
+
+  <!-- AMCL Localization-->
+
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <!-- Overall Filter -->
+
+    <!--
+    min_particles and max_particles:
+    As the AMCL dynamically adjusts its particles for every iteration,
+    it expects a range of the number of particles as an input.
+    This range is tuned based on the system specifications.
+    A large range, with a high maximum might be too computationally
+    extensive for a low-end system.
+    -->
+    <param name="min_particles" value="20"/>
+    <param name="max_particles" value="200"/>
+
+    <!--
+    transform_tolerance
+    It is the most important parameters to work with and to tune properly.
+    It's also dependent of the system specifications. It helps decide the
+    longevity of the transform being published for localization purposes.
+    A good value should only be to account for any lags in the system.
+    -->
+    <param name="transform_tolerance" value="0.2"/>
+
+    <!--
+    initial_pose
+     For this project the position as set to [0,0,-0.785]
+    -->
+    <param name="initial_pose_x" value="0.0"/>
+    <param name="initial_pose_y" value="0.0"/>
+    <param name="initial_pose_a" value="-0.785"/>
+
+    <!-- Laser
+     There are two different types model to consider here - the likelihood_field
+     and the beam. The likelihood_field model is usually more computationally
+     efficient and reliable fo an environment such as this project environment.
+     -->
+    <remap from="scan" to="fouliex_bot/laser/scan"/>
+    <param name="laser_model_type" value="likelihood_field_prob"/>
+
+    <!-- Odometry
+    odom_model_type - Since this project is using a differential drive mobile robot,
+    it's best to use the diff-corrected type
+    -->
+    <param name="odom_frame_id" value="odom"/>
+    <param name="odom_model_type" value="diff-corrected"/>
+
+
+    <param name="base_frame_id" value="robot_footprint"/>
+    <param name="global_frame_id" value="map"/>
+  </node>
+  
+  <!-- Move base -->
+  <!--
+  The move_base package help navigate the robot to the goal position by creating or calculating a path from the
+  initial position to the goal and the amcl package will localize the robot.
+  -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+    <rosparam file="$(find fouliex_bot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find fouliex_bot)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find fouliex_bot)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find fouliex_bot)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find fouliex_bot)/config/base_local_planner_params.yaml" command="load" />
+
+    <remap from="cmd_vel" to="cmd_vel"/>
+    <remap from="odom" to="odom"/>
+    <remap from="scan" to="fouliex_bot/laser/scan"/>
+
+    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+
+  </node>
+
+
+</launch>

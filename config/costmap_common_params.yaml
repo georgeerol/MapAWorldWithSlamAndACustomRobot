@@ -1,0 +1,30 @@
+# For the list of parameters common to both types of costmaps the laser sensor is the source for observations.
+
+
+map_type: costmap
+
+#These parameters set thresholds on obstacle information put into the costmap.
+# the obstacle_range parameter determines the maximum range sensor reading that will result in an obstacle being put into the costmap.
+# Here we have it set at 5.0 meters which means that the robot will only update its map with information about obstacles that are
+# within 5.0 meters of the base.
+# The raytrace_range parameter determines the range to which we will raytrace free-space given a sensor reading.
+# Setting it to 8.0 meters as we have a below means that the robot will attempt to clear out space in front of it up to
+# 8.0 meters away given the sensor reading from the laser.
+obstacle_range: 1.5
+raytrace_range: 4.0
+
+# The inflation radius should be set to the maximum distance from obstacles at which a cost should incurred.
+# Setting the inflation radius at 0.55 meters means that the the robot will treat all paths that stay 0.55 meters or
+# more, away from obstacles as having equal obstacle cost.
+inflation_radius: 0.65
+
+# It is the most important parameters to work with and to tune properly.
+# It's also dependent of the system specifications. It helps decide the
+# longevity of the transform being published for localization purposes.
+# A good value should only be to account for any lags in the system.
+transform_tolerance: 1.25
+
+# The observation_sources parameter defines a list of sensors that are going to be passing information to the costmap
+# separated by spaces.Each sensor is defined in the laser_scan_sensor.
+observation_sources: laser_scan_sensor
+laser_scan_sensor: {sensor_frame: hokuyo, data_type: LaserScan, topic: /fouliex_bot/laser/scan, marking: true, clearing: true}

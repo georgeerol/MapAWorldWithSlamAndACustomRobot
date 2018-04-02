@@ -1,0 +1,28 @@
+# This file consist of parameters that specify the behavior associated with the local costmap.
+# The local costmap relies on odom as a global frame since it updates as the robot moves forward.
+# Since the costmap updates itself at specific intervals, and aims to cover a specific region around the robot it requires
+# it's own updating and publishing frequencies as well as dimensions for the costmap.
+global_costmap:
+   global_frame: map
+   robot_base_frame: robot_footprint
+
+# tf:
+# In order to insert data from sensor sources into the costmap,the costmap_2d::Costmap2DROS object makes extensive use
+# of tf. It assumes that all transforms between the coordinate frames specified by the global_frame parameter, the
+# robot_base_frame
+   update_frequency: 3.0
+   publish_frequency: 5.0
+
+# Map types
+# The costmap is initialized to match the width, height, and obstacle information provided by the static map.
+# This configuration is normally used in conjunction with a localization system, like amcl, that allows the robot to register obstacles in the map frame and update its costmap from sensor data as it drives through its environment.
+# Whether or not to use a rolling window version of the costmap. If the static_map parameter is set to true
+# this parameter must be set to false.
+   static_map: true
+   rolling_window: false
+
+# Map management parameters
+# The width, height of the map in  meters and resolution of the map in meters/cell
+   width: 40.0
+   height: 40.0
+   resolution: 0.05
