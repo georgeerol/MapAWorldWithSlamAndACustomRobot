@@ -11,7 +11,7 @@
   <arg name="debug" default="false"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find fouliex_bot)/worlds/jackal_race.world"/>
+    <arg name="world_name" value="$(find fouliex_bot)/worlds/kitchen_dining.world"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
