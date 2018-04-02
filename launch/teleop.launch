@@ -1,0 +1,6 @@
+
+<launch>
+  <!-- teleop already has its own built in velocity smoother -->
+  <node pkg="fouliex_bot" type="teleop" name="turtlebot_teleop_keyboard"  output="screen">
+  </node>
+</launch>
