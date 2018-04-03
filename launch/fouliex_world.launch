@@ -3,12 +3,15 @@
 <launch>
   <include file="$(find fouliex_bot)/launch/robot_description.launch"/>
 
-  <arg name="world" default="empty"/> 
+  <arg name="world" default="empty"/>
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
+  <arg name="camera" default="camera" />
+  <arg name="rgb_frame_id"   default="camera_rgb_optical_frame" />
+  <arg name="depth_frame_id" default="camera_depth_optical_frame" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find fouliex_bot)/worlds/kitchen_dining.world"/>
@@ -21,9 +24,5 @@
 
   <!--spawn a robot in gazebo world-->
 
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
-  output="screen" args="-urdf -param robot_description -model fouliex_bot"/>
-
-  <!--launch rviz-->
-  <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model fouliex_bot"/>
 </launch>
