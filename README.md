@@ -1,4 +1,28 @@
 # Map a World with Slam and a custom Robot
+
+## Project Setup
+Download the repo.catkins_w is the name of the active ROS workspace for the project.
+```shell
+$ cd ~/catkin_ws/src
+git clone https://github.com/fouliex/MapAWorldWithSlamAndACustomRobot.git
+```
+Build the project:
+```shell
+$ cd ~/catkin_ws
+$ catkin_make
+```
+Source the terminal
+$ source ~/catkin_ws/devel/setup.bash
+
+Run the project
+```shell
+roslaunch fouliex_bot fouliex_world.launch
+roslaunch fouliex_bot mapping.launch
+roslaunch fouliex_bot rviz.launch
+roslaunch fouliex_bot teleop.launch
+```
+
+
 ## Dependencies
 This project works with Ubuntu 16.04
 ### 1. ROS Installation
