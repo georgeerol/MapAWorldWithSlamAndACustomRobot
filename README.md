@@ -1,5 +1,8 @@
-# Map a World with Slam and a custom Robot
 
+[//]: # (Image References)
+[image_0]: ./misc/mainImage.gif
+# Map a World with Slam and a custom Robot
+![alt text][image_0] 
 ## Project Setup
 Download the repo.catkins_w is the name of the active ROS workspace for the project.
 ```shell
