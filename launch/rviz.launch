@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For visualising your robots map bulding in RVIZ -->
+
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fouliex_bot)/launch/config/robot_slam.rviz"/>
+</launch>
