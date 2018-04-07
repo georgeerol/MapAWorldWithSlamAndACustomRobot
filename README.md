@@ -3,6 +3,18 @@
 [image_0]: ./misc/mainImage.gif
 # Map a World with Slam and a custom Robot
 ![alt text][image_0] 
+
+## Abstract
+ This project is about implementing SLAM(Simultaneous Localization and mapping) with RTAB-MAP(Real-Time Appereance-Base Mapping). Two 2D occupancy grid and a 3D octomap is created from a simulated environment and then map with a custom robot(fouliexBot).
+ 
+ ## Introduction
+ In Localization a robot is provided to map its environment. The robot has access to tis movement and sensor data and use them to estimate it pose. However, if the map of the environment doesn't exist. There are many application where there isn't a known map because the area is unexplored or because the surrounding change ofthen therefore the map is not up to date. In such case the robot will have to construct  a map and this leads  to robotic mapping.
+ 
+ Mapping assumes that the robot knows its pose and as usual has access to its movement and sensor data. The robot must produce a map of the environment using the known trajectory and mearurement data.However,even such case can be quite uncommon in the real world. Most of tioime the robot would have neither a map nor know its pose and this is where SLAM comes in.
+ 
+With SLAM, fouliexBot does really good job with just it  own movement and sensory data to build a map of its environment while simultaneously localizng itself relative to map.
+ 
+
 ## Project Setup
 Download the repo.catkins_w is the name of the active ROS workspace for the project.
 ```shell
