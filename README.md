@@ -49,8 +49,18 @@ The Back-End of GraphSLAM is where the magic happens.The input to the back-end i
 For this project the Front-End and Back-End are performed iteratively, with a Back-End feeding an updated graph to the the Front-End for further processing.
 
 ## Robot Model Configuration
+For this project the robot model is based on the fouliexBot created in the [Custom Robot Localization Project](https://github.com/fouliex/CustomRobotLocalizationProject). Fouliexbot camera for this project has been updated with a [Kinect Sensor](http://wiki.ros.org/openni_camera) and a RGB-D Camera.The Kinect Sensor is monted in the front of FouliexBot and the RGB-D carera is mounted in the top-front of the robot.Below is the visualization of FouliexBot Frames
 
+[Frame](add)
 
+## World 
+Two worlds are created and use in this project. The first is a Kitchen dining World and the other one is (Create other world).
+
+## Result
+
+## Discusion
+
+## Future Work
  
 
 ## Project Setup
