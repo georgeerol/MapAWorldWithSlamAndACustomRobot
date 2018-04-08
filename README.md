@@ -48,6 +48,8 @@ The Back-End of GraphSLAM is where the magic happens.The input to the back-end i
 
 For this project the Front-End and Back-End are performed iteratively, with a Back-End feeding an updated graph to the the Front-End for further processing.
 
+## Robot Model Configuration
+
 
  
 
