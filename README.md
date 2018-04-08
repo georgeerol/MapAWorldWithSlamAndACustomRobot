@@ -13,6 +13,19 @@
  Mapping assumes that the robot knows its pose and as usual has access to its movement and sensor data. The robot must produce a map of the environment using the known trajectory and mearurement data.However,even such case can be quite uncommon in the real world. Most of tioime the robot would have neither a map nor know its pose and this is where SLAM comes in.
  
 With SLAM, fouliexBot does really good job with just it  own movement and sensory data to build a map of its environment while simultaneously localizng itself relative to map.
+
+## Background
+SLAM has 2 best approach which are Grid-based FastSLAM and GraphSLAM.
+
+## Grid-based FastSLAM
+The fastSLAM alogirhm uses a custom particle filter approach to solve the full SLAM problem with known correspondences.
+Using particles, fastSLAM estimates a posterior over the robot path along with the map. Each of these particles hold the robot trajectory which will give an advantage to SLAM to solve the problem of mapping with known poses. In addition to the robot trajectory, each particle holds a map and each feature of the map is represented by a local Gaussian. With this algorithm, the problem is now divided into separate independent problem. Each of  which aims to solve the problem of estimating features of the map. To solve these independent mini problems FastSlam will use the low dimensional extended Kalman filter. While math features are treathed independently, dependency only exisit between robot pose uncertainty. This custom approach of representing posterior with particle filter and Gaussian is known by the Rao-Blackwellized Particle Filter One.
+
+With the MCL FastSLAM estimates the robot trajectory. With the Low-Dimensional EKF, FastSLAM estimates features of the map.
+
+
+
+
  
 
 ## Project Setup
