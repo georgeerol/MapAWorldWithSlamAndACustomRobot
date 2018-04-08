@@ -23,7 +23,16 @@ Using particles, fastSLAM estimates a posterior over the robot path along with t
 
 With the MCL FastSLAM estimates the robot trajectory. With the Low-Dimensional EKF, FastSLAM estimates features of the map.
 
+## GraphSLAM
 
+GraphSlam is a slam algorithm that solves the full slam problem. This means that the algorithm recovers the entire path and map, instead of just the most recent pose and map. This difference allows it to consider dependencies between current and previous poses. 
+
+One example of our GraphSLAM would be applicable is an underground mining. Larges machine called bores,spent every day cutting away at the rockface. The environment changes rapidly and it's important to keep an accurate map of the workspace. One way to map this space would be to drive a vehicle with a LIDAR around the environment and collects data about the surroundings. Then, after the fact, the data can be analyzed to create an accurate map of the environment. GraphSLAM have an improved accuracy over FastSLAM.
+
+FastSlam  uses particesl to instimate the robot's most likely pose. However at any point in time, it's possible that there isn't a particle in the most likely location. In fact, the chances are slim to none especially, in large environments. Since GraphSLAM solves the full slam problem, this means that it can work with all of the data at once to find the optimal solution. FastSLam uses  tidbits of information  with finite number of particles, therefore there's room for error.
+
+## RTAB-MAP
+RTAB-Map (Real-Time Appearance-Based Mapping) is a RGB-D Graph-Based SLAM approach based on an incremental apperance-based loop closure detector. For this project, RTAB-MAP is used and it is compsoed of Front-end and Back-end
 
 
  
