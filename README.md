@@ -32,7 +32,21 @@ One example of our GraphSLAM would be applicable is an underground mining. Large
 FastSlam  uses particesl to instimate the robot's most likely pose. However at any point in time, it's possible that there isn't a particle in the most likely location. In fact, the chances are slim to none especially, in large environments. Since GraphSLAM solves the full slam problem, this means that it can work with all of the data at once to find the optimal solution. FastSLam uses  tidbits of information  with finite number of particles, therefore there's room for error.
 
 ## RTAB-MAP
-RTAB-Map (Real-Time Appearance-Based Mapping) is a RGB-D Graph-Based SLAM approach based on an incremental apperance-based loop closure detector. For this project, RTAB-MAP is used and it is compsoed of Front-end and Back-end
+RTAB-Map (Real-Time Appearance-Based Mapping) is a RGB-D Graph-Based SLAM approach based on an incremental apperance-based loop closure detector. For this project, RTAB-MAP is used and it is composed of Front-end and Back-end.
+
+## Front-End and Back-End
+The goal of GraphSlAM is to create a graph of all robot poses and features encountered in the environment and find the most like robot's path and map of the environment. This task can be broken up into two sections, the Front-end and Back-end.
+
+The Front-end of GraphSLaM looks at how to custruct the graph using the odometry and sensory measurements collected by the robot. This includes interpreting sensory data, creating the graph, and continuing to add nodes and edges to it as the robot traverses the environment.
+
+Naturally, the front-end can differ greatly from application to application depending on the desired goal,including accuracy, the sensor used, and other factors. For instance, the front-end of a mobile robot applying SLAM in the office using a laser range finder would differ greatly from the front-end for a vehicle  operating on a large outdoor environment and using a stero camera.
+
+The front-End of GraphSlam also has the callgen of solving the data association problem. In simpler terms, this means accurately identifying whether features in the environment have been previously seen.
+
+The Back-End of GraphSLAM is where the magic happens.The input to the back-end is the coompleted graph with all of the constraints. And the output is the most probable configuration of robot poses and map features. The back-end is an optimization process that takes all of the constraints and find the system configuration that produces the smallest error. It is  a lot more consistend across applications.
+
+
+For this project the Front-End and Back-End are performed iteratively, with a Back-End feeding an updated graph to the the Front-End for further processing.
 
 
  
