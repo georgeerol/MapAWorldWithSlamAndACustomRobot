@@ -59,8 +59,10 @@ The ROS tf library is use to keep track of all the different coordinate frames a
 ![FouliexBotInTheKitchen](./misc/FouliexBotFrame.png)
 ## World 
 Two worlds are created and use in this project. The first is a kitchen dining World and the other one is (Create other world).
-#### Kitchen dining World
+#### Kitchen Dining World
 ![FouliexBotInTheKitchen](./misc/KitchenDiningWorld.png)
+#### Cafe World
+![FouliexBotInTheKitchen](./misc/CafeWorld.png)
 
 ## Result
 
