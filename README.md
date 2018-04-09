@@ -10,15 +10,15 @@
  ## Introduction
  In Localization a robot is provided to map its environment. The robot has access to tis movement and sensor data and use them to estimate it pose. However, if the map of the environment doesn't exist. There are many application where there isn't a known map because the area is unexplored or because the surrounding change ofthen therefore the map is not up to date. In such case the robot will have to construct  a map and this leads  to robotic mapping.
  
- Mapping assumes that the robot knows its pose and as usual has access to its movement and sensor data. The robot must produce a map of the environment using the known trajectory and mearurement data.However,even such case can be quite uncommon in the real world. Most of tioime the robot would have neither a map nor know its pose and this is where SLAM comes in.
+ Mapping assumes that the robot knows its pose and as usual has access to its movement and sensor data. The robot must produce a map of the environment using the known trajectory and measurement data. However,even such case can be quite uncommon in the real world. Most of tioime the robot would have neither a map nor know its pose and this is where SLAM comes in.
  
-With SLAM, fouliexBot does really good job with just it  own movement and sensory data to build a map of its environment while simultaneously localizng itself relative to map.
+With SLAM, FouliexBot does really good job with just it  own movement and sensory data to build a map of its environment while simultaneously localizing itself relative to map.
 
 ## Background
 SLAM has 2 best approach which are Grid-based FastSLAM and GraphSLAM.
 
 ## Grid-based FastSLAM
-The fastSLAM alogirhm uses a custom particle filter approach to solve the full SLAM problem with known correspondences.
+The fastSLAM algorithm uses a custom particle filter approach to solve the full SLAM problem with known correspondences.
 Using particles, fastSLAM estimates a posterior over the robot path along with the map. Each of these particles hold the robot trajectory which will give an advantage to SLAM to solve the problem of mapping with known poses. In addition to the robot trajectory, each particle holds a map and each feature of the map is represented by a local Gaussian. With this algorithm, the problem is now divided into separate independent problem. Each of  which aims to solve the problem of estimating features of the map. To solve these independent mini problems FastSlam will use the low dimensional extended Kalman filter. While math features are treathed independently, dependency only exisit between robot pose uncertainty. This custom approach of representing posterior with particle filter and Gaussian is known by the Rao-Blackwellized Particle Filter One.
 
 With the MCL FastSLAM estimates the robot trajectory. With the Low-Dimensional EKF, FastSLAM estimates features of the map.
@@ -29,15 +29,15 @@ GraphSlam is a slam algorithm that solves the full slam problem. This means that
 
 One example of our GraphSLAM would be applicable is an underground mining. Larges machine called bores,spent every day cutting away at the rockface. The environment changes rapidly and it's important to keep an accurate map of the workspace. One way to map this space would be to drive a vehicle with a LIDAR around the environment and collects data about the surroundings. Then, after the fact, the data can be analyzed to create an accurate map of the environment. GraphSLAM have an improved accuracy over FastSLAM.
 
-FastSlam  uses particesl to instimate the robot's most likely pose. However at any point in time, it's possible that there isn't a particle in the most likely location. In fact, the chances are slim to none especially, in large environments. Since GraphSLAM solves the full slam problem, this means that it can work with all of the data at once to find the optimal solution. FastSLam uses  tidbits of information  with finite number of particles, therefore there's room for error.
+FastSlam  uses particles to intimate the robot's most likely pose. However at any point in time, it's possible that there isn't a particle in the most likely location. In fact, the chances are slim to none especially, in large environments. Since GraphSLAM solves the full slam problem, this means that it can work with all of the data at once to find the optimal solution. FastSLam uses  tidbits of information  with finite number of particles, therefore there's room for error.
 
 ## RTAB-MAP
-RTAB-Map (Real-Time Appearance-Based Mapping) is a RGB-D Graph-Based SLAM approach based on an incremental apperance-based loop closure detector. For this project, RTAB-MAP is used and it is composed of Front-end and Back-end.
+RTAB-Map (Real-Time Appearance-Based Mapping) is a RGB-D Graph-Based SLAM approach based on an incremental appearance-based loop closure detector. For this project, RTAB-MAP is used and it is composed of Front-end and Back-end.
 
 ## Front-End and Back-End
 The goal of GraphSlAM is to create a graph of all robot poses and features encountered in the environment and find the most like robot's path and map of the environment. This task can be broken up into two sections, the Front-end and Back-end.
 
-The Front-end of GraphSLaM looks at how to custruct the graph using the odometry and sensory measurements collected by the robot. This includes interpreting sensory data, creating the graph, and continuing to add nodes and edges to it as the robot traverses the environment.
+The Front-end of GraphSLaM looks at how to construct the graph using the odometry and sensory measurements collected by the robot. This includes interpreting sensory data, creating the graph, and continuing to add nodes and edges to it as the robot traverses the environment.
 
 Naturally, the front-end can differ greatly from application to application depending on the desired goal,including accuracy, the sensor used, and other factors. For instance, the front-end of a mobile robot applying SLAM in the office using a laser range finder would differ greatly from the front-end for a vehicle  operating on a large outdoor environment and using a stero camera.
 
@@ -49,16 +49,16 @@ The Back-End of GraphSLAM is where the magic happens.The input to the back-end i
 For this project the Front-End and Back-End are performed iteratively, with a Back-End feeding an updated graph to the the Front-End for further processing.
 
 ## Robot Model Configuration
-For this project the robot model is based on the fouliexBot created in the [Custom Robot Localization Project](https://github.com/fouliex/CustomRobotLocalizationProject). Fouliexbot camera for this project has been updated with a [Kinect Sensor](http://wiki.ros.org/openni_camera) and a RGB-D Camera.The Kinect Sensor is monted in the front of FouliexBot and the RGB-D carera is mounted in the top-front of the robot.Below is the visualization of FouliexBot Frames
+For this project the robot model is the FouliexBot created in the [Custom Robot Localization Project](https://github.com/fouliex/CustomRobotLocalizationProject). Fouliexbot camera for this project has been updated with a [Kinect Sensor](http://wiki.ros.org/openni_camera) and a RGB-D Camera.The Kinect Sensor is monted in the front of FouliexBot and the RGB-D carera is mounted in the top-front of the robot.Below is the visualization of FouliexBot Frames
 
-[Frame](add)
+![FouliexBotInTheKitchen](./misc/FouliexBotInKitchen.png)
 
 ## World 
 Two worlds are created and use in this project. The first is a Kitchen dining World and the other one is (Create other world).
 
 ## Result
 
-## Discusion
+## Discussions
 
 ## Future Work
  
@@ -79,10 +79,10 @@ $ source ~/catkin_ws/devel/setup.bash
 
 Run the project
 ```shell
-roslaunch fouliex_bot fouliex_world.launch
-roslaunch fouliex_bot mapping.launch
-roslaunch fouliex_bot rviz.launch
-roslaunch fouliex_bot teleop.launch
+$ roslaunch fouliex_bot fouliex_world.launch
+$ roslaunch fouliex_bot mapping.launch
+$ roslaunch fouliex_bot rviz.launch
+$ roslaunch fouliex_bot teleop.launch
 ```
 
 
