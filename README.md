@@ -53,6 +53,8 @@ For this project the robot model is the FouliexBot created in the [Custom Robot 
 
 ![FouliexBotInTheKitchen](./misc/FouliexBotInKitchen.png)
 
+Below is FouliexBot configuration frames
+![FouliexBotInTheKitchen](./misc/FouliexBotFrame.png)
 ## World 
 Two worlds are created and use in this project. The first is a Kitchen dining World and the other one is (Create other world).
 
