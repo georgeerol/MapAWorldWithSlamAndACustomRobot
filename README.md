@@ -52,11 +52,15 @@ For this project the Front-End and Back-End are performed iteratively, with a Ba
 For this project the robot model is the FouliexBot created in the [Custom Robot Localization Project](https://github.com/fouliex/CustomRobotLocalizationProject). Fouliexbot camera for this project has been updated with a [Kinect Sensor](http://wiki.ros.org/openni_camera) and a RGB-D Camera.The Kinect Sensor is monted in the front of FouliexBot and the RGB-D carera is mounted in the top-front of the robot.Below is the visualization of FouliexBot Frames
 
 ![FouliexBotInTheKitchen](./misc/FouliexBotInKitchen.png)
+#### FouliexBot Configuration Frames
 
-Below is FouliexBot configuration frames
+Below is FouliexBot configuration frame
+The ROS tf library is use to keep track of all the different coordinate frames and defines their relation with one another. For this project the tf view_frames is use to create the graphical representation of FouliexBot.
 ![FouliexBotInTheKitchen](./misc/FouliexBotFrame.png)
 ## World 
-Two worlds are created and use in this project. The first is a Kitchen dining World and the other one is (Create other world).
+Two worlds are created and use in this project. The first is a kitchen dining World and the other one is (Create other world).
+#### Kitchen dining World
+![FouliexBotInTheKitchen](./misc/KitchenDiningWorld.png)
 
 ## Result
 
