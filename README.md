@@ -64,6 +64,9 @@ Two worlds are created and use in this project. The first is a kitchen dining Wo
 ![FouliexBotInTheKitchen](./misc/CafeWorld.png)
 
 ## Result
+### FouliexBot mapping the Kitchen Dining World
+![FouliexBotInTheKitchen](./misc/FouliexBotMappingKitchenDinner1.png)
+![FouliexBotInTheKitchen](./misc/FouliexBotMappingKitchenDinner2.png)
 
 ## Discussions
 
