@@ -75,9 +75,12 @@ Two worlds are created and use in this project. The first is a kitchen dining Wo
 
 
 ## Discussions
-
+FouliexBot was able to map the Kitchen Dining and Cafe world successfully. As the robot moves around the room, more data are captured and the 2D and 3D map keep increasing. One problem is that each pink line are where 
+the robot slipped and each time that happened the mapping become  fuzzy which is why in the cafe world below the mapping is not clear. This can get fix by updating the wheels of FouliexBot to be less slippery on the Cafe and Kitchen Dining environment.
+![FouliexBotInTheKitchen](./misc/FouliexBotMappingCafeRiz.png)
+![FouliexBotInTheKitchen](./misc/FouliexBotMappingCafeRTABMAP.png)
 ## Future Work
- 
+ Future work can be to to use RTAB-Map in a real home by leverage and update [BlueBot](https://github.com/fouliex/BlueBot) with a with a Kinect Sensor  a RGB-D Camera and replacing the Arduino Board with a Jetson Board.
 
 ## Project Setup
 Download the repo.catkins_w is the name of the active ROS workspace for the project.
