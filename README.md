@@ -94,7 +94,7 @@ the robot slipped and each time that happened the mapping become  fuzzy which is
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingCafeRiz.png)
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingCafeRTABMAP.png)
 ## Future Work
- Future work can be to to use RTAB-Map in a real home by leverage and update [BlueBot](https://github.com/fouliex/BlueBot) with a with a Kinect Sensor  a RGB-D Camera and replacing the Arduino Board with a Jetson Board.
+ Future work can be to to use RTAB-Map in a real home by leverage and update [BlueBot](https://github.com/fouliex/BlueBot) with a Kinect Sensor  a RGB-D Camera and replacing the Arduino Board with a Jetson Board.
 
 ## Project Setup
 Download the repo.catkins_w is the name of the active ROS workspace for the project.
