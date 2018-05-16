@@ -71,9 +71,17 @@ When the simulation start the FouliexBot is standing still while the RGB_D camer
 Using the Teleop application from the terminal(bottom right image) the robot moves arount the room and more data are captured and the 2D(botom left image) and 3d(top right image) map is increasing.
 
 ### FouliexBot mapping the Kitchen Dining World
+* Top right image- Gazebo view
+* Top left image-  RTAB 3D Map
+* Bottom right image- RViz 2D Map
+* Bottom left image- Teleop application 
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingKitchenDinner1.png)
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingKitchenDinner2.png)
 ### FouliexBot mapping the Cafe World
+* Top right image- Gazebo view
+* Top left image-  RTAB 3D Map
+* Bottom right image- RViz 2D Map
+* Bottom left image- Teleop application
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingCafe1.png)
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingCafe2.png)
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingCafe3.png)
