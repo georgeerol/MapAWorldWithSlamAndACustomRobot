@@ -57,13 +57,19 @@ Below is FouliexBot configuration frame
 The ROS tf library is use to keep track of all the different coordinate frames and defines their relation with one another. For this project the tf view_frames is use to create the graphical representation of FouliexBot.
 ![FouliexBotInTheKitchen](./misc/FouliexBotFrame.png)
 ## World 
-Two worlds are created and use in this project. The first is a kitchen dining World and the other one is (Create other world).
+Two worlds are created and use in this project. The first is a kitchen Dining World provided my Udacity and the other one is Cafe World.The Cafer World is created based on the original cafe model provided by Gazebo. Tables,walking pedestrians and big numbered dice are added.
+
 #### Kitchen Dining World
+Here's a Gazebo view of the Kitchen Dining World provided by Udacity.
 ![FouliexBotInTheKitchen](./misc/KitchenDiningWorld.png)
 #### Cafe World
+Here's a Gazebo view of the Cafe World based on the orignal Cafe model with added components.
 ![FouliexBotInTheKitchen](./misc/CafeWorld.png)
 
 ## Result
+When the simulation start the FouliexBot is standing still while the RGB_D camera and Kinect is capturing data and images.
+Using the Teleop application from the terminal(bottom right image) the robot moves arount the room and more data are captured and the 2D(botom left image) and 3d(top right image) map is increasing.
+
 ### FouliexBot mapping the Kitchen Dining World
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingKitchenDinner1.png)
 ![FouliexBotInTheKitchen](./misc/FouliexBotMappingKitchenDinner2.png)
